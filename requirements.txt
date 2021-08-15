@@ -2,3 +2,4 @@ keras
 opencv-python-headless
 streamlit 
 numpy 
+tensorflow
