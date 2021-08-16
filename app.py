@@ -22,7 +22,7 @@ if image is not None:
     frame = image
 
     bounding_box = cv2.CascadeClassifier('trained_model/haarcascade_frontalface_default.xml')
-    gray_frame = frame#cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     num_faces = bounding_box.detectMultiScale(gray_frame,scaleFactor=1.3, minNeighbors=5)
 
     for (x, y, w, h) in num_faces:
