@@ -41,5 +41,5 @@ if image is not None:
         tem = cv2.resize(frame,(450,450),interpolation = cv2.INTER_CUBIC)
         st.image(cv2.cvtColor(tem, cv2.COLOR_BGR2RGB))
         emoji = cv2.imread('emojis/' + emotion_dict[maxindex].lower() + '.png')
-        st.image(cv2.cvtColor(cv2.resize(emoji,(450,500))), cv2.COLOR_BGR2RGB)
+        st.image(cv2.cvtColor(cv2.resize(emoji,(450,500)), cv2.COLOR_BGR2RGB))
 
