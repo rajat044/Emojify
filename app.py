@@ -19,7 +19,7 @@ if uploaded_image is not None:
 emotion_dict = {0: "Angry", 1: "Disgusted", 2: "Fearful", 3: "Happy", 4: "Neutral", 5: "Sad", 6: "Surprised"}
 
 if image is not None:
-    frame = cv2.imread(image)
+    frame = image
 
     bounding_box = cv2.CascadeClassifier('trained_model/haarcascade_frontalface_default.xml')
     gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
