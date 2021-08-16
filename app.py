@@ -34,6 +34,7 @@ if image is not None:
         cv2.putText(frame, emotion_dict[maxindex], (x+20, y-60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
    
     st.image(cv2.resize(frame,(450,450),interpolation = cv2.INTER_CUBIC))
+    st.write(maxindex)
     emoji = cv2.imread('emojis/' + emotion_dict[maxindex].lower() + '.png')
     
     st.image(cv2.resize(emoji,(450,500),interpolation = cv2.INTER_CUBIC))
