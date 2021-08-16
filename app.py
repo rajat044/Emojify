@@ -32,7 +32,7 @@ if image is not None:
         cropped_img = np.expand_dims(np.expand_dims(cv2.resize(roi_gray_frame, (48, 48)), -1), 0)
         emotion_prediction = emotion_model.predict(cropped_img)
         maxindex = int(np.argmax(emotion_prediction))
-        cv2.putText(frame, emotion_dict[maxindex], (x+20, y-60), cv2.FONT_HERSHEY_SIMPLEX, 10, (255, 255, 255), 2, cv2.LINE_AA)
+        cv2.putText(frame, emotion_dict[maxindex], (x+20, y-60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
     if not maxindex: 
         st.warning('Enable to detect emotion')
     
@@ -41,5 +41,6 @@ if image is not None:
         tem = cv2.resize(frame,(450,450),interpolation = cv2.INTER_CUBIC)
         st.image(cv2.cvtColor(tem, cv2.COLOR_BGR2RGB))
         emoji = cv2.imread('emojis/' + emotion_dict[maxindex].lower() + '.png')
+        st.write(emotion_dict[maxindex])
         st.image(cv2.cvtColor(cv2.resize(emoji,(450,500)), cv2.COLOR_BGR2RGB))
 
