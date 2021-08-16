@@ -40,5 +40,5 @@ if image is not None:
     else: 
         st.image(cv2.resize(frame,(450,450),interpolation = cv2.INTER_CUBIC))
         emoji = cv2.imread('emojis/' + emotion_dict[maxindex].lower() + '.png')
-        st.image(cv2.resize(emoji,(450,500),interpolation = cv2.INTER_CUBIC))
+        st.image(cv2.resize(emoji,(450,500)))
 
