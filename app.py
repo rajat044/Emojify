@@ -9,7 +9,9 @@ emotion_model = load_model(model_path)
 
 st.title("Face to Emoji")
 
-image = st.file_uploader("Upload your image and see magic", ["jpg","jpeg","png"])
+uploaded_image = st.file_uploader("Upload your image and see magic", ["jpg","jpeg","png"])
+file_bytes = np.asarray(bytearray(uploaded_image.read()), dtype=np.uint8)
+image = cv2.imdecode(file_bytes, 1)
 
 emotion_dict = {0: "Angry", 1: "Disgusted", 2: "Fearful", 3: "Happy", 4: "Neutral", 5: "Sad", 6: "Surprised"}
 
