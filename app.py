@@ -33,8 +33,8 @@ if image is not None:
         maxindex = int(np.argmax(emotion_prediction))
         cv2.putText(frame, emotion_dict[maxindex], (x+20, y-60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
 
-    cv2_imshow(cv2.resize(frame,(450,450),interpolation = cv2.INTER_CUBIC))
+    st.image(cv2.resize(frame,(450,450),interpolation = cv2.INTER_CUBIC))
     emoji = cv2.imread('emojis/' + emotion_dict[maxindex].lower() + '.png')
     
-    cv2_imshow(cv2.resize(emoji,(450,500),interpolation = cv2.INTER_CUBIC))
+    st.image(cv2.resize(emoji,(450,500),interpolation = cv2.INTER_CUBIC))
 
