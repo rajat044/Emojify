@@ -10,6 +10,7 @@ emotion_model = load_model(model_path)
 st.title("Face to Emoji")
 
 uploaded_image = st.file_uploader("Upload your image and see magic", ["jpg","jpeg","png"])
+image = None
 
 if uploaded_image is not None:
     file_bytes = np.asarray(bytearray(uploaded_image.read()), dtype=np.uint8)
