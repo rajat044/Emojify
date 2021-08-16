@@ -10,12 +10,14 @@ emotion_model = load_model(model_path)
 st.title("Face to Emoji")
 
 uploaded_image = st.file_uploader("Upload your image and see magic", ["jpg","jpeg","png"])
-file_bytes = np.asarray(bytearray(uploaded_image.read()), dtype=np.uint8)
-image = cv2.imdecode(file_bytes, 1)
+
+if uploaded_image is not None:
+    file_bytes = np.asarray(bytearray(uploaded_image.read()), dtype=np.uint8)
+    image = cv2.imdecode(file_bytes, 1)
 
 emotion_dict = {0: "Angry", 1: "Disgusted", 2: "Fearful", 3: "Happy", 4: "Neutral", 5: "Sad", 6: "Surprised"}
 
-while True:
+if image is not None:
     frame = cv2.imread(image)
 
     bounding_box = cv2.CascadeClassifier('trained_model/haarcascade_frontalface_default.xml')
@@ -34,5 +36,4 @@ while True:
     emoji = cv2.imread('emojis/' + emotion_dict[maxindex].lower() + '.png')
     
     cv2_imshow(cv2.resize(emoji,(450,500),interpolation = cv2.INTER_CUBIC))
-    break
 
